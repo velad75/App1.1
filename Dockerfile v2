@@ -1,0 +1,20 @@
+# DV Dockerfile
+
+# Indicates that the windowsservercore image will be used as the base image.
+#FROM mcr.microsoft.com/windows/nanoserver:1809
+
+# Metadata indicating an image maintainer.
+LABEL maintainer="velad75@users.noreply.github.com"
+
+# Uses dism.exe to install the IIS role.
+#RUN dism.exe /online /enable-feature /all /featurename:iis-webserver /NoRestart
+
+# Creates an HTML file and adds content to this file.
+# RUN cat "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
+#COPY index.html c:\inetpub\wwwroot\index.html
+
+# Sets a command or process that will run each time a container is run from the new image.
+#CMD [ "cmd" ]
+
+FROM nginx:alpine
+COPY index.html /usr/share/nginx/html
